@@ -1,0 +1,19 @@
+{
+  "name": "qap2",
+  "version": "1.0.0",
+  "description": "Semester 3 - QAP2 - Full Stack JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ksnow13/QAP2_FullStackJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ksnow13/QAP2_FullStackJS/issues"
+  },
+  "homepage": "https://github.com/Ksnow13/QAP2_FullStackJS#readme"
+}
