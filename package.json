@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Ksnow13/QAP2_FullStackJS/issues"
   },
-  "homepage": "https://github.com/Ksnow13/QAP2_FullStackJS#readme"
+  "homepage": "https://github.com/Ksnow13/QAP2_FullStackJS#readme",
+  "dependencies": {
+    "date-fns": "^2.29.3",
+    "uuid": "^9.0.0"
+  }
 }
