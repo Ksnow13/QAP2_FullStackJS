@@ -33,6 +33,27 @@ const server = http.createServer((req, res) => {
       path += "github.html";
       myRoutes.githubPage(path, req.url, res);
       break;
+    case "/github/Ksnow13":
+      res.statusCode = 301;
+      res.setHeader("Location", "/github");
+      res.end();
+      break;
+    case "/about/me":
+      res.statusCode = 301;
+      res.setHeader("Location", "/about");
+      res.end();
+      break;
+    case "/contact/me":
+      res.statusCode = 301;
+      res.setHeader("Location", "/contact");
+      res.end();
+      break;
+    case "/cookie":
+      res.statusCode = 200;
+      path += "cookie.html";
+      res.setHeader("Set-cookie", "fullName=Your Cookies Are Ready !");
+      myRoutes.cookiePage(path, req.url, res);
+      break;
     default:
       res.statusCode = 404;
       path += "404.html";
