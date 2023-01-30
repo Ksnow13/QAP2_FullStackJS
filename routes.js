@@ -48,6 +48,11 @@ function errorPage(path, eventRoute, res) {
     "a routing error occured for the " + eventRoute + " route."
   );
 }
+
+function cookiePage(path, eventRoute, res) {
+  displayFile(path, res);
+  myEmitter.emit("route", eventRoute, "Info:", "The cookie page is running.");
+}
 //----------------------------------------------------------------------------------------
 
 function displayFile(path, response) {
@@ -70,4 +75,5 @@ module.exports = {
   aboutPage,
   contactPage,
   githubPage,
+  cookiePage,
 };
