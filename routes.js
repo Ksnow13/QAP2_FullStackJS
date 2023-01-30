@@ -24,6 +24,21 @@ function homePage(path, eventRoute, res) {
   myEmitter.emit("route", eventRoute, "Info:", "The home page is running.");
 }
 
+function aboutPage(path, eventRoute, res) {
+  displayFile(path, res);
+  myEmitter.emit("route", eventRoute, "Info:", "The about page is running.");
+}
+
+function contactPage(path, eventRoute, res) {
+  displayFile(path, res);
+  myEmitter.emit("route", eventRoute, "Info:", "The contact page is running.");
+}
+
+function githubPage(path, eventRoute, res) {
+  displayFile(path, res);
+  myEmitter.emit("route", eventRoute, "Info:", "The github page is running.");
+}
+
 function errorPage(path, eventRoute, res) {
   displayFile(path, res);
   myEmitter.emit(
@@ -52,4 +67,7 @@ function displayFile(path, response) {
 module.exports = {
   homePage,
   errorPage,
+  aboutPage,
+  contactPage,
+  githubPage,
 };
