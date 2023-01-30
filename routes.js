@@ -10,33 +10,58 @@ class MyEmitter extends EventEmitter {}
 
 const myEmitter = new MyEmitter();
 
+//-----------------------------------------------------------------------------
+
+const eventLogs = require("./eventLog");
+
 myEmitter.on("route", (eventRoute, level, msg) => {
   const currentDate = new Date();
   console.log(
     currentDate.toLocaleString() + " * " + level.toUpperCase() + " * " + msg
   );
+  eventLogs(eventRoute, level.toUpperCase(), msg);
 });
 
 //------------------------------------------------------------------------------
 
 function homePage(path, eventRoute, res) {
   displayFile(path, res);
-  myEmitter.emit("route", eventRoute, "Info:", "The home page is running.");
+  myEmitter.emit(
+    "route",
+    eventRoute,
+    "Info:",
+    "the home page was successfully visited."
+  );
 }
 
 function aboutPage(path, eventRoute, res) {
   displayFile(path, res);
-  myEmitter.emit("route", eventRoute, "Info:", "The about page is running.");
+  myEmitter.emit(
+    "route",
+    eventRoute,
+    "Info:",
+    "the about page was successfully visited."
+  );
 }
 
 function contactPage(path, eventRoute, res) {
   displayFile(path, res);
-  myEmitter.emit("route", eventRoute, "Info:", "The contact page is running.");
+  myEmitter.emit(
+    "route",
+    eventRoute,
+    "Info:",
+    "the contact page was successfully visited."
+  );
 }
 
 function githubPage(path, eventRoute, res) {
   displayFile(path, res);
-  myEmitter.emit("route", eventRoute, "Info:", "The github page is running.");
+  myEmitter.emit(
+    "route",
+    eventRoute,
+    "Info:",
+    "the github page was successfully visited."
+  );
 }
 
 function errorPage(path, eventRoute, res) {
@@ -68,6 +93,8 @@ function displayFile(path, response) {
     }
   });
 }
+
+//------------------------------------------------------------------------------------------
 
 module.exports = {
   homePage,
