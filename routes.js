@@ -1,28 +1,44 @@
 /*
-
+Kyle Snow
+QAP 2 - JS FullStack
+Keyin Collage
+Jan 25 2023
 */
+
+// syntax for including the file system module
 
 const fs = require("fs");
 
+// get the reference of EventEmitter class of events module
+
 const EventEmitter = require("events");
+
+//creating an object of EventEmitter
 
 class MyEmitter extends EventEmitter {}
 
 const myEmitter = new MyEmitter();
 
-//-----------------------------------------------------------------------------
+// syntax for including functions from eventlog.js
 
 const eventLogs = require("./eventLog");
+
+// creating the function that gets called when routes load that console.logs information
+
+// this event displays information to the console like date and time of when a routes loads of fails to load
+// it also displays the route name, level and a message that the route was visted successfully or not.
+// it also show the request.statusCode
 
 myEmitter.on("route", (eventRoute, level, msg) => {
   const currentDate = new Date();
   console.log(
-    currentDate.toLocaleString() + " * " + level.toUpperCase() + " * " + msg
+    currentDate.toLocaleString() + " * " + level.toUpperCase() + " " + msg
   );
   eventLogs(eventRoute, level.toUpperCase(), msg);
 });
 
-//------------------------------------------------------------------------------
+// these are the function used in route.js
+// this function gathers the route info and calls the emitter function from above
 
 function homePage(path, eventRoute, res) {
   displayFile(path, res);
@@ -30,7 +46,7 @@ function homePage(path, eventRoute, res) {
     "route",
     eventRoute,
     "Info:",
-    "the home page was successfully visited."
+    `home page successfully visited with a status code of ${res.statusCode}`
   );
 }
 
@@ -40,7 +56,7 @@ function aboutPage(path, eventRoute, res) {
     "route",
     eventRoute,
     "Info:",
-    "the about page was successfully visited."
+    `about page successfully visited with a status code of ${res.statusCode}`
   );
 }
 
@@ -50,7 +66,7 @@ function contactPage(path, eventRoute, res) {
     "route",
     eventRoute,
     "Info:",
-    "the contact page was successfully visited."
+    `contact page successfully visited with a status code of ${res.statusCode}`
   );
 }
 
@@ -60,7 +76,17 @@ function githubPage(path, eventRoute, res) {
     "route",
     eventRoute,
     "Info:",
-    "the github page was successfully visited."
+    `github page successfully visited with a status code of ${res.statusCode}`
+  );
+}
+
+function keyinPage(path, eventRoute, res) {
+  displayFile(path, res);
+  myEmitter.emit(
+    "route",
+    eventRoute,
+    "Info:",
+    `keyin page successfully visited with a status code of ${res.statusCode}`
   );
 }
 
@@ -69,16 +95,22 @@ function errorPage(path, eventRoute, res) {
   myEmitter.emit(
     "route",
     eventRoute,
-    "error",
-    "a routing error occured for the " + eventRoute + " route."
+    "error:",
+    `error occured while routing ${eventRoute} route. status code ${res.statusCode}`
   );
 }
 
 function cookiePage(path, eventRoute, res) {
   displayFile(path, res);
-  myEmitter.emit("route", eventRoute, "Info:", "The cookie page is running.");
+  myEmitter.emit(
+    "route",
+    eventRoute,
+    "Info:",
+    `cookie page successfully visited with a status code of ${res.statusCode}`
+  );
 }
-//----------------------------------------------------------------------------------------
+
+// this function is used in the functions above to read/white the route info and display them on the server/webpage.
 
 function displayFile(path, response) {
   fs.readFile(path, function (err, data) {
@@ -94,7 +126,7 @@ function displayFile(path, response) {
   });
 }
 
-//------------------------------------------------------------------------------------------
+// export the functions so they can be used in other files.
 
 module.exports = {
   homePage,
@@ -103,4 +135,5 @@ module.exports = {
   contactPage,
   githubPage,
   cookiePage,
+  keyinPage,
 };
