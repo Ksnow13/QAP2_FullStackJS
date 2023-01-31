@@ -6,7 +6,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      color: var(--dark);
+    }
+
+    body {
+      background-color: rgb(97, 105, 119);
+      line-height: 1.5rem;
+    }
+
+    .wrapper {
+      display: grid;
+      gap: 20px;
+    }
+
+    .banner {
+      background-color: rgb(7, 7, 7);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 50px;
+      color: white;
+    }
+
+    .main-nav ul {
+      list-style-type: none;
+      padding: 30px 50px;
+    }
+
+    .intro {
+      margin-top: 3rem;
+      max-width: 1060px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 30px 50px;
+    }
+
+    .intro-title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .main-nav a {
+      display: block;
+      text-decoration: none;
+      text-align: center;
+      background-color: black;
+      color: white;
+      width: 15rem;
+      margin-bottom: 1.5rem;
+
+      margin-left: auto;
+      margin-right: auto;
+
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      box-shadow: var(--shadow);
+      text-transform: uppercase;
+    }
+
+    .main-nav a:hover {
+      background-color: white;
+      color: black;
+    }
+
+    .redirect {
+      text-align: center;
+    }
+  </style>
+
   <body>
-    <h1>ABOUT Aboot Aboot</h1>
+    <div class="wrapper">
+      <section class="banner">
+        <h2 class="title">
+          <i class="fa-solid fa-paw"></i> Welcome to the about me page
+        </h2>
+      </section>
+
+      <div class="intro">
+        <h1 class="intro-title">ABOUT ME</h1>
+        <p>
+          Hello, My name is Kyle and I am an inspiring software developer. I am
+          currently starting up my third semester of my Software Development
+          Course at Keyin Collage. I truly enjoy using and implementing
+          everything I've learned so far into my projects. As I move forward in
+          completing my course I become more eager to learn as much as I can and
+          gaining as much experience as possible.
+        </p>
+      </div>
+
+      <div>
+        <nav class="main-nav">
+          <ul>
+            <li class="btn"><a href="/">Home</a></li>
+            <li class="btn"><a href="/github">Github</a></li>
+            <li class="btn"><a href="/contact">Contact</a></li>
+            <li class="btn"><a href="/cookie">Cookies</a></li>
+          </ul>
+          <h1 class="redirect">Redirects</h1>
+          <ul>
+            <li class="btn"><a href="/about/me">About/me</a></li>
+            <li class="btn"><a href="/contact/me">Contact/me</a></li>
+            <li class="btn">
+              <a href="/github/Ksnow13">github/Ksnow13</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   </body>
 </html>
